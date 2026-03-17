@@ -43,11 +43,12 @@
       nextBtn,
       cards,
       index: 0,
+      gesture: null,
+      wheelLock: false,
     };
   });
 
   let activePanelId = 'panel-iphone';
-  let autoplay;
 
   function getCarousel(panelId) {
     return carousels.find((carousel) => carousel.panel.id === panelId);
@@ -64,18 +65,29 @@
     carousel.track.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
   }
 
-  function stopAutoplay() {
-    clearInterval(autoplay);
-  }
-
-  function startAutoplay() {
-    stopAutoplay();
-    const carousel = getCarousel(activePanelId);
-    if (!carousel || carousel.cards.length < 2) {
+  function queueWheelNavigation(carousel, deltaX) {
+    if (carousel.wheelLock) {
       return;
     }
 
-    autoplay = setInterval(() => scrollToIndex(carousel, carousel.index + 1), 3500);
+    const direction = deltaX > 0 ? 1 : -1;
+    carousel.wheelLock = true;
+    scrollToIndex(carousel, carousel.index + direction);
+
+    window.setTimeout(() => {
+      carousel.wheelLock = false;
+    }, 140);
+  }
+
+  function getTouchCenter(touches) {
+    if (touches.length < 2) {
+      return null;
+    }
+
+    return {
+      x: (touches[0].clientX + touches[1].clientX) / 2,
+      y: (touches[0].clientY + touches[1].clientY) / 2,
+    };
   }
 
   function setActivePanel(panelId) {
@@ -93,8 +105,6 @@
       panel.classList.toggle('is-active', isActive);
       panel.hidden = !isActive;
     });
-
-    startAutoplay();
   }
 
   carousels.forEach((carousel) => {
@@ -106,10 +116,94 @@
       carousel.nextBtn.addEventListener('click', () => scrollToIndex(carousel, carousel.index + 1));
     }
 
-    carousel.track.addEventListener('mouseenter', stopAutoplay);
-    carousel.track.addEventListener('mouseleave', startAutoplay);
-    carousel.track.addEventListener('touchstart', stopAutoplay, { passive: true });
-    carousel.track.addEventListener('touchend', startAutoplay, { passive: true });
+    carousel.track.addEventListener(
+      'touchstart',
+      (event) => {
+        if (event.touches.length !== 2) {
+          carousel.gesture = null;
+          return;
+        }
+
+        const center = getTouchCenter(event.touches);
+        if (!center) {
+          carousel.gesture = null;
+          return;
+        }
+
+        carousel.gesture = {
+          startX: center.x,
+          startY: center.y,
+          lastX: center.x,
+          lastY: center.y,
+        };
+      },
+      { passive: true }
+    );
+
+    carousel.track.addEventListener(
+      'touchmove',
+      (event) => {
+        if (!carousel.gesture || event.touches.length !== 2) {
+          return;
+        }
+
+        const center = getTouchCenter(event.touches);
+        if (!center) {
+          return;
+        }
+
+        carousel.gesture.lastX = center.x;
+        carousel.gesture.lastY = center.y;
+      },
+      { passive: true }
+    );
+
+    carousel.track.addEventListener(
+      'touchend',
+      () => {
+        if (!carousel.gesture) {
+          return;
+        }
+
+        const deltaX = carousel.gesture.lastX - carousel.gesture.startX;
+        const deltaY = carousel.gesture.lastY - carousel.gesture.startY;
+        const passedThreshold = Math.abs(deltaX) > 48;
+        const isHorizontal = Math.abs(deltaX) > Math.abs(deltaY) * 1.2;
+
+        if (passedThreshold && isHorizontal) {
+          scrollToIndex(carousel, carousel.index + (deltaX < 0 ? 1 : -1));
+        }
+
+        carousel.gesture = null;
+      },
+      { passive: true }
+    );
+
+    carousel.track.addEventListener(
+      'touchcancel',
+      () => {
+        carousel.gesture = null;
+      },
+      { passive: true }
+    );
+
+    carousel.track.addEventListener(
+      'wheel',
+      (event) => {
+        const isHorizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+        if (!isHorizontal) {
+          return;
+        }
+
+        if (Math.abs(event.deltaX) < 6) {
+          return;
+        }
+
+        queueWheelNavigation(carousel, event.deltaX);
+        event.preventDefault();
+      },
+      { passive: false }
+    );
   });
 
   tabs.forEach((tab) => {
