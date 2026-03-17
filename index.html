@@ -1,11 +1,249 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Punchline</title>
-</head>
-<body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Punchline - Cinematic Sound Effects for iPhone & iPad</title>
+    <meta
+      name="description"
+      content="Punchline lets you trigger cinematic sound effects with your voice or a shake. Import custom sounds, stay local-first, and react instantly."
+    />
 
-<h1>Test  page</h1>
+    <meta property="og:title" content="Punchline - Cinematic Sound Effects" />
+    <meta
+      property="og:description"
+      content="Trigger cinematic sound effects with your voice or a shake on iPhone and iPad."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/app-icon.jpg" />
 
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand" aria-label="Punchline home">
+          <img src="assets/app-icon.jpg" alt="Punchline app icon" class="brand-icon" />
+          <span>Punchline</span>
+        </a>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#how">How It Works</a>
+          <a href="#privacy">Privacy</a>
+          <a href="#download">Download</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">iOS App</p>
+            <h1>Punchline</h1>
+            <p class="lead">Turn everyday moments into movie moments.</p>
+            <p class="sublead">
+              Trigger cinematic sound effects with your voice or a shake. Import custom sounds and react in real time.
+            </p>
+            <!-- TODO: Replace APP_STORE_URL with final App Store listing URL -->
+            <a class="app-store-link" href="APP_STORE_URL" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                alt="Download on the App Store"
+                class="app-store-badge"
+              />
+            </a>
+          </div>
+
+          <div class="device-card">
+            <img src="assets/screen-1.png" alt="Punchline app preview" class="hero-shot" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="preview">
+        <div class="container">
+          <h2>App Preview</h2>
+          <p class="section-copy">A quick look at Punchline in action.</p>
+
+          <div class="carousel-shell screenshot-browser" aria-label="Punchline screenshots">
+            <div class="carousel-tabs" role="tablist" aria-label="Device screenshots">
+              <button
+                class="carousel-tab is-active"
+                type="button"
+                role="tab"
+                id="tab-iphone"
+                aria-selected="true"
+                aria-controls="panel-iphone"
+                data-tab-target="panel-iphone"
+              >
+                iPhone
+              </button>
+              <button
+                class="carousel-tab"
+                type="button"
+                role="tab"
+                id="tab-ipad"
+                aria-selected="false"
+                aria-controls="panel-ipad"
+                data-tab-target="panel-ipad"
+              >
+                iPad
+              </button>
+            </div>
+
+            <section
+              class="carousel-panel is-active"
+              id="panel-iphone"
+              role="tabpanel"
+              aria-labelledby="tab-iphone"
+              data-carousel-panel
+            >
+              <button class="carousel-btn prev" type="button" aria-label="Previous iPhone screenshot">&#10094;</button>
+              <div class="carousel-track" data-carousel-track>
+                <figure class="device-frame phone-frame">
+                  <img src="assets/screens/iPhone/IMG_1420.PNG" alt="Punchline iPhone screenshot showing the main soundboard" />
+                </figure>
+                <figure class="device-frame phone-frame">
+                  <img src="assets/screens/iPhone/IMG_1422.PNG" alt="Punchline iPhone screenshot showing imported sounds" />
+                </figure>
+                <figure class="device-frame phone-frame">
+                  <img src="assets/screens/iPhone/IMG_1423.PNG" alt="Punchline iPhone screenshot showing trigger settings" />
+                </figure>
+                <figure class="device-frame phone-frame">
+                  <img src="assets/screens/iPhone/IMG_1425.PNG" alt="Punchline iPhone screenshot showing sound effects library" />
+                </figure>
+                <figure class="device-frame phone-frame">
+                  <img src="assets/screens/iPhone/Simulator Screenshot - iPhone 16 Pro - 2026-03-16 at 17.13.35.png" alt="Punchline iPhone screenshot showing the app home screen on simulator" />
+                </figure>
+                <figure class="device-frame phone-frame">
+                  <img src="assets/screens/iPhone/Simulator Screenshot - iPhone 16 Pro - 2026-03-16 at 17.14.56.png" alt="Punchline iPhone screenshot showing app controls on simulator" />
+                </figure>
+              </div>
+              <button class="carousel-btn next" type="button" aria-label="Next iPhone screenshot">&#10095;</button>
+            </section>
+
+            <section
+              class="carousel-panel"
+              id="panel-ipad"
+              role="tabpanel"
+              aria-labelledby="tab-ipad"
+              hidden
+              data-carousel-panel
+            >
+              <button class="carousel-btn prev" type="button" aria-label="Previous iPad screenshot">&#10094;</button>
+              <div class="carousel-track" data-carousel-track>
+                <figure class="device-frame tablet-frame">
+                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.17.04.png" alt="Punchline iPad screenshot showing the landing screen" />
+                </figure>
+                <figure class="device-frame tablet-frame">
+                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.06.png" alt="Punchline iPad screenshot showing voice trigger controls" />
+                </figure>
+                <figure class="device-frame tablet-frame">
+                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.10.png" alt="Punchline iPad screenshot showing the sound library" />
+                </figure>
+                <figure class="device-frame tablet-frame">
+                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.38.png" alt="Punchline iPad screenshot showing effect selection" />
+                </figure>
+                <figure class="device-frame tablet-frame">
+                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.19.30.png" alt="Punchline iPad screenshot showing app settings" />
+                </figure>
+                <figure class="device-frame tablet-frame">
+                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.28.31.png" alt="Punchline iPad screenshot showing the preview workflow" />
+                </figure>
+              </div>
+              <button class="carousel-btn next" type="button" aria-label="Next iPad screenshot">&#10095;</button>
+            </section>
+          </div>
+
+          <div class="video-preview">
+            <!-- Replace preview.mp4 with your final App Preview video if needed -->
+            <video controls muted playsinline preload="metadata" poster="assets/screen-1.png">
+              <source src="assets/preview.mp4" type="video/mp4" />
+              Your browser does not support embedded videos.
+            </video>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="features">
+        <div class="container">
+          <h2>Features</h2>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <h3>Voice Trigger</h3>
+              <p>Launch sounds instantly when spoken keywords are detected.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Motion Trigger</h3>
+              <p>Use shake gestures for physical, fast, live reactions.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Custom Sounds</h3>
+              <p>Import your own audio files and map them your way.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Fast Soundboard</h3>
+              <p>Built for low friction: react quickly during streams or moments.</p>
+            </article>
+            <article class="feature-card">
+              <h3>Import Audio</h3>
+              <p>Bring in files from Your Device with a clean local workflow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reveal" id="how">
+        <div class="container">
+          <h2>How It Works</h2>
+          <ol class="steps">
+            <li>Open Punchline and grant microphone/speech access.</li>
+            <li>Choose built-in effects or import your own sounds.</li>
+            <li>Assign voice keywords and shake triggers.</li>
+            <li>Trigger cinematic sound effects in real time.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section privacy reveal" id="privacy">
+        <div class="container narrow">
+          <h2>Local-First Privacy</h2>
+          <p>
+            Punchline is designed with a local-first approach. Your sound library and imported files stay on your device.
+            No custom analytics backend is required for core app functionality.
+          </p>
+        </div>
+      </section>
+
+      <section class="section download reveal" id="download">
+        <div class="container narrow centered">
+          <h2>Download Punchline</h2>
+          <p>7-day free trial. One-time unlock. No recurring subscription.</p>
+          <!-- TODO: Replace APP_STORE_URL with final App Store listing URL -->
+          <a class="app-store-link" href="APP_STORE_URL" target="_blank" rel="noopener noreferrer">
+            <img
+              src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+              alt="Download on the App Store"
+              class="app-store-badge"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <p>&copy; <span id="year"></span> Punchline</p>
+        <nav>
+          <a href="privacy/index.html">Privacy Policy</a>
+          <a href="terms/index.html">Terms of Use</a>
+          <a href="mailto:YOUR_SUPPORT_EMAIL">Developer Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
