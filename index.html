@@ -17,13 +17,22 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="assets/app-icon.jpg" />
 
+    <link rel="preload" as="image" href="assets/hero-bg.webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="assets/screen-1.webp" fetchpriority="high" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="topbar">
       <div class="container nav-wrap">
         <a href="#top" class="brand" aria-label="Punchline home">
-          <img src="assets/app-icon.jpg" alt="Punchline app icon" class="brand-icon" />
+          <img
+            src="assets/app-icon-ui.webp"
+            alt="Punchline app icon"
+            class="brand-icon"
+            width="34"
+            height="34"
+            decoding="async"
+          />
           <span>Punchline</span>
         </a>
         <nav>
@@ -57,7 +66,15 @@
           </div>
 
           <div class="device-card">
-            <img src="assets/screen-1.png" alt="Punchline app preview" class="hero-shot" />
+            <img
+              src="assets/screen-1.webp"
+              alt="Punchline app preview"
+              class="hero-shot"
+              width="408"
+              height="612"
+              fetchpriority="high"
+              decoding="async"
+            />
           </div>
         </div>
       </section>
@@ -103,22 +120,64 @@
               <button class="carousel-btn prev" type="button" aria-label="Previous iPhone screenshot">&#10094;</button>
               <div class="carousel-track" data-carousel-track>
                 <figure class="device-frame phone-frame">
-                  <img src="assets/screens/iPhone/IMG_1420.PNG" alt="Punchline iPhone screenshot showing the main soundboard" />
+                  <img
+                    src="assets/screens/iPhone/IMG_1420.webp"
+                    alt="Punchline iPhone screenshot showing the main soundboard"
+                    width="1284"
+                    height="2778"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame phone-frame">
-                  <img src="assets/screens/iPhone/IMG_1422.PNG" alt="Punchline iPhone screenshot showing imported sounds" />
+                  <img
+                    src="assets/screens/iPhone/IMG_1422.webp"
+                    alt="Punchline iPhone screenshot showing imported sounds"
+                    width="1284"
+                    height="2778"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame phone-frame">
-                  <img src="assets/screens/iPhone/IMG_1423.PNG" alt="Punchline iPhone screenshot showing trigger settings" />
+                  <img
+                    src="assets/screens/iPhone/IMG_1423.webp"
+                    alt="Punchline iPhone screenshot showing trigger settings"
+                    width="1284"
+                    height="2778"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame phone-frame">
-                  <img src="assets/screens/iPhone/IMG_1425.PNG" alt="Punchline iPhone screenshot showing sound effects library" />
+                  <img
+                    src="assets/screens/iPhone/IMG_1425.webp"
+                    alt="Punchline iPhone screenshot showing sound effects library"
+                    width="1284"
+                    height="2778"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame phone-frame">
-                  <img src="assets/screens/iPhone/Simulator Screenshot - iPhone 16 Pro - 2026-03-16 at 17.13.35.png" alt="Punchline iPhone screenshot showing the app home screen on simulator" />
+                  <img
+                    src="assets/screens/iPhone/Simulator Screenshot - iPhone 16 Pro - 2026-03-16 at 17.13.35.webp"
+                    alt="Punchline iPhone screenshot showing the app home screen on simulator"
+                    width="1284"
+                    height="2778"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame phone-frame">
-                  <img src="assets/screens/iPhone/Simulator Screenshot - iPhone 16 Pro - 2026-03-16 at 17.14.56.png" alt="Punchline iPhone screenshot showing app controls on simulator" />
+                  <img
+                    src="assets/screens/iPhone/Simulator Screenshot - iPhone 16 Pro - 2026-03-16 at 17.14.56.webp"
+                    alt="Punchline iPhone screenshot showing app controls on simulator"
+                    width="1284"
+                    height="2778"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
               </div>
               <button class="carousel-btn next" type="button" aria-label="Next iPhone screenshot">&#10095;</button>
@@ -135,22 +194,64 @@
               <button class="carousel-btn prev" type="button" aria-label="Previous iPad screenshot">&#10094;</button>
               <div class="carousel-track" data-carousel-track>
                 <figure class="device-frame tablet-frame">
-                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.17.04.png" alt="Punchline iPad screenshot showing the landing screen" />
+                  <img
+                    src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.17.04.webp"
+                    alt="Punchline iPad screenshot showing the landing screen"
+                    width="2048"
+                    height="2732"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame tablet-frame">
-                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.06.png" alt="Punchline iPad screenshot showing voice trigger controls" />
+                  <img
+                    src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.06.webp"
+                    alt="Punchline iPad screenshot showing voice trigger controls"
+                    width="2048"
+                    height="2732"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame tablet-frame">
-                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.10.png" alt="Punchline iPad screenshot showing the sound library" />
+                  <img
+                    src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.10.webp"
+                    alt="Punchline iPad screenshot showing the sound library"
+                    width="2048"
+                    height="2732"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame tablet-frame">
-                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.38.png" alt="Punchline iPad screenshot showing effect selection" />
+                  <img
+                    src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.18.38.webp"
+                    alt="Punchline iPad screenshot showing effect selection"
+                    width="2048"
+                    height="2732"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame tablet-frame">
-                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.19.30.png" alt="Punchline iPad screenshot showing app settings" />
+                  <img
+                    src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.19.30.webp"
+                    alt="Punchline iPad screenshot showing app settings"
+                    width="2048"
+                    height="2732"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
                 <figure class="device-frame tablet-frame">
-                  <img src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.28.31.png" alt="Punchline iPad screenshot showing the preview workflow" />
+                  <img
+                    src="assets/screens/iPad/Simulator Screenshot - iPad Air 11-inch (M3) - 2026-03-16 at 17.28.31.webp"
+                    alt="Punchline iPad screenshot showing the preview workflow"
+                    width="2048"
+                    height="2732"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </figure>
               </div>
               <button class="carousel-btn next" type="button" aria-label="Next iPad screenshot">&#10095;</button>
@@ -159,7 +260,7 @@
 
           <div class="video-preview">
             <!-- Replace preview.mp4 with your final App Preview video if needed -->
-            <video controls muted playsinline preload="metadata" poster="assets/screen-1.png">
+            <video controls muted playsinline preload="metadata" poster="assets/screen-1.webp">
               <source src="assets/preview.mp4" type="video/mp4" />
               Your browser does not support embedded videos.
             </video>

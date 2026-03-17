@@ -103,7 +103,7 @@ a {
   position: absolute;
   inset: 0;
   background-image: linear-gradient(rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.82)),
-    url("assets/hero-bg.png");
+    url("assets/hero-bg.webp");
   background-size: cover;
   background-position: center;
   pointer-events: none;
@@ -247,28 +247,27 @@ h2 {
 .device-frame img {
   display: block;
   width: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .phone-frame {
+  width: min(100%, 320px);
   border-radius: 28px;
 }
 
 .phone-frame img {
   border-radius: 20px;
-  aspect-ratio: 1284 / 2778;
-  width: min(100%, 320px);
 }
 
 .tablet-frame {
+  width: min(100%, 400px);
   border-radius: 24px;
   padding: 12px;
 }
 
 .tablet-frame img {
   border-radius: 16px;
-  aspect-ratio: 2048 / 2732;
-  width: min(100%, 400px);
 }
 
 #panel-iphone .carousel-track {
