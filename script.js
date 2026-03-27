@@ -10,6 +10,7 @@
   }
 
   const revealEls = document.querySelectorAll('.reveal');
+  const previewVideos = Array.from(document.querySelectorAll('[data-autoplay-once]'));
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -23,6 +24,30 @@
   );
 
   revealEls.forEach((el) => revealObserver.observe(el));
+
+  if (previewVideos.length) {
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          const video = entry.target;
+          const playAttempt = video.play();
+
+          if (playAttempt && typeof playAttempt.catch === 'function') {
+            playAttempt.catch(() => {});
+          }
+
+          videoObserver.unobserve(video);
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    previewVideos.forEach((video) => videoObserver.observe(video));
+  }
 
   const panels = Array.from(document.querySelectorAll('[data-carousel-panel]'));
   const tabs = Array.from(document.querySelectorAll('[data-tab-target]'));
